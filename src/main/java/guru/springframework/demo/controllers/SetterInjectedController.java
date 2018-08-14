@@ -1,15 +1,19 @@
 package guru.springframework.demo.controllers;
 
 import guru.springframework.demo.services.GreetingServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class SetterInjectedController {
 
     private GreetingServiceImpl greetingService;
 
-    String sayHello(){
+    public String sayHello(){
         return greetingService.sayGreeting();
     }
 
+    @Autowired
     public void setGreetingService(GreetingServiceImpl greetingService) {
         this.greetingService = greetingService;
     }

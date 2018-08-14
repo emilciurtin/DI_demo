@@ -1,6 +1,9 @@
 package guru.springframework.demo;
 
+import guru.springframework.demo.controllers.ConstructorInjectedController;
 import guru.springframework.demo.controllers.MyController;
+import guru.springframework.demo.controllers.PropertyInjectedController;
+import guru.springframework.demo.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,5 +21,9 @@ public class DiDemoApplication {
         MyController controller = (MyController) ctx.getBean("myController");
 
         controller.hello();
+
+        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
     }
 }
